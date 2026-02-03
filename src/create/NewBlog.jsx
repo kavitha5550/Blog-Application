@@ -106,7 +106,7 @@ const NewBlog = () => {
 
       <form
         onSubmit={postBlog}
-        className="w-full max-w-2xl bg-white p-6 rounded-lg shadow space-y-4"
+        className="w-full max-w-2xl bg-white p-6 rounded-lg shadow space-y-4 overflow-x-hidden"
       >
         <div className="flex justify-between items-center">
           <h1 className="text-xl font-semibold">Create Blog
