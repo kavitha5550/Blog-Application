@@ -1,0 +1,36 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+.input {
+  margin: 4px;
+  padding: 10px 12px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #a85c2ca3; /* amber-800 */
+  border-radius: 6px;
+}
+
+.input:focus {
+  border-color: #885538c4; 
+  box-shadow: 0 0 0 2px rgba(120, 53, 15, 0.2);
+}
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #e16b22, #542818);
+  color: white;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(to right, #bb6a3e, #7e3924);
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(90, 47, 31, 0.4);
+}
