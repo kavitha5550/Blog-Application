@@ -4,7 +4,7 @@ import axios from "axios";
 
 // const API = "http://localhost:5000";
 
-const API = https://mock-api-ukyk.onrender.com";
+const API = "https://mock-api-ukyk.onrender.com";
 
 export const ZustandStore = create((set, get) => ({
   form: {
