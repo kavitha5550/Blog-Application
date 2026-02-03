@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ZustandStore } from "../Store/ZustandStore";
@@ -102,7 +102,6 @@ const NewBlog = () => {
 
   return (
     <div className="min-h-screen flex justify-center px-6 py-8">
-      <ToastContainer position="top-center" />
 
       <form
         onSubmit={postBlog}

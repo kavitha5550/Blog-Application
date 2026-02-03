@@ -1,16 +1,42 @@
-# React + Vite
+# Blog Application - Submission Guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a full-stack capable React application using `json-server` as a mock backend.
 
-Currently, two official plugins are available:
+## 🚀 How to Run the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1.  **Clone the Repository** (if submitting via Git):
+    ```bash
+    git clone https://github.com/kavitha5550/Blog-Application.git
+    cd task
+    ```
 
-## React Compiler
+2.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3.  **Start the Application**:
+    We have configured a single command to run both the Frontend (Vite) and Backend (JSON Server) simultaneously.
+    ```bash
+    npm run start:all
+    ```
 
-## Expanding the ESLint configuration
+4.  **Access the App**:
+    - **Frontend**: `http://localhost:5173` (Use this for testing)
+    - **Backend API**: `http://localhost:5000`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Key Features
+
+- **Authentication**: Sign Up and Login functionality using a simulated database.
+- **CRUD Operations**: Create, Read, Update, and Delete blog posts.
+- **Search & Filter**: Search blogs by author and sort by Date (Newest/Oldest) or Title (A-Z/Z-A).
+- **Responsive Design**: Fully responsive layout tailored for desktop and mobile.
+- **State Management**: Uses **Zustand** for efficient global state management.
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React.js, Tailwind CSS, Lucide React (Icons)
+- **Backend**: JSON Server (Simulated REST API)
+- **State Management**: Zustand
+- **Routing**: React Router DOM
+- **Build Tool**: Vite

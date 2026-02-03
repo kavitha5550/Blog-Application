@@ -2,12 +2,12 @@ import React from "react";
 import { Regex, UserPlus, ArrowLeft } from 'lucide-react';
 import { ZustandStore } from "../Store/ZustandStore"
 import { NavLink, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 
 
 const SignUp = () => {
 
-  const { form, InputField, ClearForm, registerUser } = ZustandStore();
+  const { form, InputField, ClearForm, registerUser, loading } = ZustandStore();
   const navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -27,11 +27,9 @@ const SignUp = () => {
       return;
     }
 
-   
+
 
     try {
-      const { registerUser } = ZustandStore.getState();
-      
       await registerUser({
         email: form.email,
         password: String(form.password),
@@ -48,7 +46,6 @@ const SignUp = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-6">
-      <ToastContainer position="top-center" />
 
       <div className="w-full max-w-md bg-white p-6 rounded-lg shadow">
         <h1 className="flex items-center justify-between text-xl font-semibold mb-6">
@@ -60,7 +57,7 @@ const SignUp = () => {
           <ArrowLeft
             size={18}
             className="cursor-pointer text-gray-600 hover:text-black transition"
-
+            onClick={() => navigate(-1)}
           />
         </h1>
 
@@ -98,6 +95,7 @@ const SignUp = () => {
               type="button"
               onClick={ClearForm}
               className="btn"
+              disabled={loading}
             >
               Cancel
             </button>
@@ -105,8 +103,16 @@ const SignUp = () => {
             <button
               type="submit"
               className="btn"
+              disabled={loading}
             >
-              Submit
+              {loading ? (
+                <div className="loader-container">
+                  <span className="spinner"></span>
+                  Submitting...
+                </div>
+              ) : (
+                "Submit"
+              )}
             </button>
           </div>
         </form>

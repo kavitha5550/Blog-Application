@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 // import { blogs } from "../assets/assets";
-import { ToastContainer } from "react-toastify";
 import { CalendarFold, Pen, ArrowLeft } from "lucide-react";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from 'react-router-dom';
@@ -39,7 +38,6 @@ const AllBlog = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 px-6 py-10">
-      <ToastContainer position="top-center" />
 
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">

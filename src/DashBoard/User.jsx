@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { ZustandStore } from "../Store/ZustandStore";
 
 const User = () => {
@@ -48,7 +48,6 @@ const User = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-4">
-      <ToastContainer position="top-center" />
 
       <h2
         className="text-lg font-semibold bg-gradient-to-r

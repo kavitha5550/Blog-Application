@@ -12,6 +12,7 @@ export const ZustandStore = create((set, get) => ({
     password: "",
   },
   blogs: [],
+  loading: false,
   user: JSON.parse(localStorage.getItem("user")) || null,
 
   InputField: (key, value) =>
@@ -29,59 +30,81 @@ export const ZustandStore = create((set, get) => ({
 
   // BLOGS
   fetchBlogs: async () => {
+    set({ loading: true });
     try {
       const res = await axios.get(`${API}/blogs`);
       set({ blogs: res.data });
     } catch (error) {
       console.error("Error fetching blogs:", error);
+    } finally {
+      set({ loading: false });
     }
   },
 
   addBlog: async (blog) => {
+    set({ loading: true });
     try {
       await axios.post(`${API}/blogs`, blog);
       const res = await axios.get(`${API}/blogs`);
       set({ blogs: res.data });
     } catch (error) {
       console.error("Error adding blog:", error);
+    } finally {
+      set({ loading: false });
     }
   },
 
   updateBlog: async (blog) => {
+    set({ loading: true });
     try {
       await axios.put(`${API}/blogs/${blog.id}`, blog);
       const res = await axios.get(`${API}/blogs`);
       set({ blogs: res.data });
     } catch (error) {
       console.error("Error updating blog:", error);
+    } finally {
+      set({ loading: false });
     }
   },
 
   deleteBlog: async (id) => {
+    set({ loading: true });
     try {
       await axios.delete(`${API}/blogs/${id}`);
       const res = await axios.get(`${API}/blogs`);
       set({ blogs: res.data });
     } catch (error) {
       console.error("Error deleting blog:", error);
+    } finally {
+      set({ loading: false });
     }
   },
 
   // AUTH
   registerUser: async (user) => {
-    const res = await axios.post(`${API}/users`, user);
-    return res.data;
+    set({ loading: true });
+    try {
+      const res = await axios.post(`${API}/users`, user);
+      return res.data;
+    } finally {
+      set({ loading: false });
+    }
   },
 
   loginUser: async (email, password) => {
-    const res = await axios.get(`${API}/users?email=${email}&password=${password}`);
-    if (res.data.length > 0) {
-      const user = res.data[0];
-      localStorage.setItem("user", JSON.stringify(user));
-      set({ user });
-      return user;
+    set({ loading: true });
+    try {
+      const res = await axios.get(`${API}/users?email=${email}&password=${password}`);
+      if (res.data.length > 0) {
+        const user = res.data[0];
+        localStorage.setItem("user", JSON.stringify(user));
+        set({ user });
+        return user;
+      }
+      return null;
+    } finally {
+      set({ loading: false });
     }
-    return null;
   },
 
   logoutUser: () => {

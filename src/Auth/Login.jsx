@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { User, ArrowLeft } from "lucide-react";
 import { ZustandStore } from "../Store/ZustandStore";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const { InputField, form, ClearForm, loginUser } = ZustandStore();
+  const { InputField, form, ClearForm, loginUser, loading } = ZustandStore();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,7 +42,6 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center px-6">
       <div className="w-full max-w-md bg-white p-6 rounded-lg shadow">
-        <ToastContainer position="top-center" />
         <h1 className="flex items-center justify-between text-xl font-semibold mb-6">
           <div className="flex items-center gap-2">
             <User size={18} />
@@ -77,14 +76,23 @@ const Login = () => {
           <button
             onClick={ClearForm}
             className="btn"
+            disabled={loading}
           >
             Cancel
           </button>
           <button
             onClick={handleLogin}
             className="btn"
+            disabled={loading}
           >
-            Login
+            {loading ? (
+              <div className="loader-container">
+                <span className="spinner"></span>
+                Logging in...
+              </div>
+            ) : (
+              "Login"
+            )}
           </button>
         </div>
 
