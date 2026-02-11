@@ -10,6 +10,7 @@ const SignUp = () => {
   const { form, InputField, ClearForm, registerUser, loading } = ZustandStore();
   const navigate = useNavigate()
 
+
   const handleChange = (e) => {
     InputField(e.target.name, e.target.value);
   };
@@ -127,6 +128,7 @@ const SignUp = () => {
     </div>
   );
 };
+
 
 export default SignUp;
 

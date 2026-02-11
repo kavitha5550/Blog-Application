@@ -1,10 +1,8 @@
-import { Form } from "react-router-dom";
+
 import { create } from "zustand";
 import axios from "axios";
 
-// const API = "http://localhost:5000";
-
-const API = "https://mock-api-ukyk.onrender.com";
+const API = import.meta.env.VITE_API_URL || "https://mock-api-ukyk.onrender.com";
 
 export const ZustandStore = create((set, get) => ({
   form: {
